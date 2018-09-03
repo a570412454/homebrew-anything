@@ -26,8 +26,6 @@ class Vpnc < Formula
 	
   end
 
-  # Patch from user @Imagesafari to enable compilation on Lion
-  patch :DATA if MacOS.version >= :lion
 
   def install
     ENV.no_optimization
