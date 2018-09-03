@@ -62,6 +62,5 @@ class Vpnc < Formula
   test do
     assert_match /vpnc version/, shell_output("#{sbin}/vpnc --version")
   end
-end
 
 __END__
