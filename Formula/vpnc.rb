@@ -1,17 +1,10 @@
 class Vpnc < Formula
   desc "Cisco VPN concentrator client"
-  homepage "https://www.unix-ag.uni-kl.de/~massar/vpnc/"
-  url "https://mirrors.ocf.berkeley.edu/debian/pool/main/v/vpnc/vpnc_0.5.3r550.orig.tar.gz"
-  mirror "https://mirrors.kernel.org/debian/pool/main/v/vpnc/vpnc_0.5.3r550.orig.tar.gz"
-  version "0.5.3r550"
-  sha256 "a6afdd55db20e2c17b3e1ea9e3f017894111ec4ad94622644fc841c146942e71"
- 
-
-  bottle do
-    cellar :any
-
-    sha256 "f9dcd6133700d6a752a980cf1547270f03e188666db826764c087b5ce7026b4f" => :mavericks
-  end
+  homepage "https://brianreiter.org/2014/12/03/i-modified-vpnc-cisco-vpn-client-to-use-os-x-user-native-tunnels/"
+  url "https://github.com/breiter/vpnc/archive/0.5.3-xnu-2015-07-03.tar.gz"
+  version "0.5.3-xnu-2015-07-03"
+  sha256 "1419d6cf4e7c3ea5409fb6bf524f88d6b2752578b001c9ba4b68599d745f3a69"
+  revision 4
 
   option "with-hybrid", "Use vpnc hybrid authentication"
 
@@ -21,14 +14,9 @@ class Vpnc < Formula
   depends_on "libgcrypt"
   depends_on "libgpg-error"
   depends_on "gnutls"
-  depends_on :tuntap
   depends_on "openssl" if build.with? "hybrid"
-	
-  end
-
 
   def install
-    ENV.no_optimization
     ENV.deparallelize
 
     (var/"run/vpnc").mkpath
@@ -60,3 +48,4 @@ class Vpnc < Formula
   test do
     assert_match /vpnc version/, shell_output("#{sbin}/vpnc --version")
   end
+end
