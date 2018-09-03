@@ -5,11 +5,11 @@ class Vpnc < Formula
   mirror "https://mirrors.kernel.org/debian/pool/main/v/vpnc/vpnc_0.5.3r550.orig.tar.gz"
   version "0.5.3r550"
   sha256 "a6afdd55db20e2c17b3e1ea9e3f017894111ec4ad94622644fc841c146942e71"
-  revision 0
+  revision 1
 
   bottle do
     cellar :any
-    revision 0
+    revision 1
     sha256 "f9dcd6133700d6a752a980cf1547270f03e188666db826764c087b5ce7026b4f" => :mavericks
   end
 
